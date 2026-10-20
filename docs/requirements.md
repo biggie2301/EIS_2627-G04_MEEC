@@ -18,6 +18,8 @@
 | CLI - 03 | Client | Interactive Order Creation Map | The order creation form must feature an embedded interactive Leaflet.js map container rendering markers (e.g., FEUP) | **Client Page:** Embedded Leaflet.js map container |
 | CLI - 04 | Client | Active Order Status Tracking | Clients can view the current status of their active delivery orders | **Client Page:** Status section displaying accepted order states |
 | CLI - 05 | Client | Historical Orders Access | Clients can consult historical records of their past and completed order | **Client Page:** Static history table/list prototype with sample data |
+| CLI - 06 | Client | Personal Information Management | Clients can edit their personal account details | **Client Page:** Account settings/edit interface |
+
 
 ## Courier Requirements
 | ID | ACTOR | REQUIREMENT | ACCEPTANCE CRITERIA | IMPLEMENTATION |
@@ -33,6 +35,7 @@
 | COU - 09 | Courier | Interactive Navigation Cockpit Map | When viewing active orders, the system displays the OpenStreetMap container with markers (e.g., FEUP marker) | **Courier Page:** Embedded interactive map container |
 | COU - 10 | Courier | Available Orders Inspection & Selection | Approved couriers can inspect the list of available orders and select one or more for execution, subject to eligibility rules | **Courier Page:** Available-order list with assignment selection controls |
 | COU - 11 | Courier | Completed Orders Log Access | Couriers can consult their history of completed orders | **Courier Page:** Completed orders history log |
+| COU - 12  | Courier | Personal Information Management | Couriers can edit their personal account details | **Courier Page:** Account settings/edit interface |
 
 ## Staff Requirements
 | ID | ACTOR | REQUIREMENT | ACCEPTANCE CRITERIA | IMPLEMENTATION |
@@ -41,6 +44,7 @@
 | STF - 02 | Staff | Vehicle Auditing & Certificate Approval | Staff audit and approve individual vehicles before allocation, verifying valid insurance and inspection certificates/documents | **Staff Page:** Vehicle approval list |
 | STF - 03 | Staff | Vehicle Expiry & Update Alerts | Staff receive visual alerts when vehicle information is updated, or when inspection/insurance certificates become outdated | **Staff Page:** Visual alert badges for expired/updated certificates |
 | STF - 04 | Staff | Unapproved or Expired Asset Prevention | Vehicles and tasks cannot be assigned or started if the vehicle is unapproved, missing required documents, or holding expired insurance/inspection certificates | **Global Logic:** Eligibility checks and explanatory status messages. |
+| STF - 05 | Staff | Personal Information Management | Staff can edit their personal account details | **Staff Page:** Account settings/edit interface |
 
 ## Admin Requirements
 | ID | ACTOR | REQUIREMENT | ACCEPTANCE CRITERIA | IMPLEMENTATION |
