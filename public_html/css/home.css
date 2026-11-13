@@ -1,0 +1,7 @@
+/* ==========================================================================
+   CMS — public pages styles (team.html, index.html)
+   ========================================================================== */
+/* ---------- Team page (team.html) ---------- */
+.team-page { min-height: calc(100vh - 72px - 90px); }
+.team-page h1 { font-size: 2.4rem; }
+.team-page .lead { font-size: 1.15rem; margin-bottom: 16px; }
