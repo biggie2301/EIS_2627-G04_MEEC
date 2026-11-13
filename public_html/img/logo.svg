@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CMS logo">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#2e7d4f"/>
+  <path d="M32 12 50 21v20L32 50 14 41V21z" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M14 21l18 9 18-9M32 30v20" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M23 16.5l18 9" stroke="#b9e2c8" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

@@ -12,7 +12,28 @@ The primary objective of this project is to develop a Web-based Enterprise Infor
 
 ## 2. Repository Structure
 
-*(Placeholder: Add your repository directory tree here once finalized)*
+```
+EIS_2627-G04_MEEC/
+├── nbproject/              NetBeans HTML5/JavaScript project (open this folder in NetBeans)
+├── public_html/            Site root — static Sprint 1 prototype
+│   ├── index.html          Home / Portal (public)
+│   ├── login.html          Login / Register (public)
+│   ├── team.html           Team page (public)
+│   ├── client.html         Client page
+│   ├── courier.html        Courier page
+│   ├── staff.html          Staff panel
+│   ├── admin.html          Admin panel
+│   ├── css/                base.css (shared) + one stylesheet per page
+│   ├── js/                 validation.js + login.js (fast login), client.js, courier.js (maps)
+│   └── img/                logo
+└── docs/                   requirements, use cases, sketches, ER model
+```
+
+### How to run
+Open the repository folder in Apache NetBeans (**File → Open Project**) and press **Run Project (F6)**, or open `public_html/index.html` in a browser. The maps use Leaflet.js and OpenStreetMap tiles, so they need an internet connection.
+
+### Sprint 1 scope
+The pages are static and show sample data. Only navigation works: the navbar, the side menus, and the **fast login** on the login page. An empty field shows a validation error, and a demo account (`client@cms.pt`, `courier@cms.pt`, `staff@cms.pt`, `admin@cms.pt`, any password) opens that area. All other buttons and fields are disabled, and the maps only display the FEUP marker and the route. Everything becomes active in Sprint 2.
 
 ---
 
