@@ -1,0 +1,40 @@
+/* ==========================================================================
+   CMS — Login / Register page styles (login.html)
+   Layout from the Login sketch: form | vertical divider | logo
+   ========================================================================== */
+.auth-wrap { min-height: calc(100vh - 72px - 90px); display: flex; align-items: center; padding: 40px 0; }
+.auth-panel { display: grid; grid-template-columns: 1fr 3px 1fr; align-items: center; gap: 56px; width: 100%; }
+.auth-divider { align-self: stretch; background: #555; min-height: 420px; }
+.auth-logo { display: grid; place-items: center; }
+.logo-circle {
+    width: 320px; height: 320px; border-radius: 50%; background: #d9dbde;
+    display: grid; place-items: center; text-align: center;
+}
+.logo-circle img { width: 150px; }
+.logo-circle strong { display: block; font-family: var(--font-title); font-size: 3rem; letter-spacing: 2px; line-height: 1; }
+.auth-title { font-family: var(--font-title); font-size: 2.6rem; margin: 0 0 4px; }
+
+.login-row { display: flex; align-items: center; gap: 46px; }
+.login-fields { flex: 1; display: flex; flex-direction: column; gap: 22px; max-width: 420px; }
+.login-fields .input { background: #9d9fa233; border: 2px solid var(--dark); border-radius: 0; padding: 10px; }
+.btn-round {
+    width: 100px; height: 100px; border-radius: 50%; padding: 0; flex: none;
+    background: #d9dbde; color: var(--text); font-size: 2.2rem;
+}
+.btn-round:hover { background: var(--green); color: #fff; }
+.auth-links { display: flex; flex-direction: column; gap: 6px; margin-top: 26px; padding-left: 14px; }
+.auth-links a { color: var(--text); }
+
+@media (max-width: 860px) {
+    .auth-panel { grid-template-columns: 1fr; gap: 30px; }
+    .auth-divider { display: none; }
+    .auth-logo { order: -1; }
+    .logo-circle { width: 170px; height: 170px; }
+    .logo-circle img { width: 80px; }
+    .logo-circle strong { font-size: 1.6rem; }
+}
+@media (max-width: 520px) {
+    .login-row { flex-direction: column; align-items: stretch; gap: 18px; }
+    .login-fields { max-width: none; }
+    .btn-round { width: 64px; height: 64px; font-size: 1.6rem; align-self: flex-end; }
+}

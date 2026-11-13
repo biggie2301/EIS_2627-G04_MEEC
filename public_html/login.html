@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register · CMS</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="index.html"><img src="img/logo.svg" alt="">CMS</a>
+        <nav aria-label="Main">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html" class="active" aria-current="page">Login / Register</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container auth-wrap">
+        <!-- Login sketch: form | divider | logo -->
+        <div class="auth-panel">
+            <div class="auth-col">
+                <!-- ============ LOGIN ============ -->
+                <section id="login" class="auth-section default" aria-labelledby="login-title">
+                    <h1 id="login-title" class="auth-title">Welcome back</h1>
+                    <p class="muted mb-2">Log in to access your area.</p>
+                    <form id="login-form" data-validate data-success="Login will be connected to the server in Sprint 2.">
+                        <div class="login-row">
+                            <div class="login-fields">
+                                <div class="field">
+                                    <label for="login-email" class="sr-only">Email</label>
+                                    <input id="login-email" class="input" type="email" placeholder="Email" required data-rule="email" data-label="Email" autocomplete="username">
+                                    <div class="field-error"></div>
+                                </div>
+                                <div class="field">
+                                    <label for="login-password" class="sr-only">Password</label>
+                                    <input id="login-password" class="input" type="password" placeholder="Password" required data-label="Password" autocomplete="current-password">
+                                    <div class="field-error"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-round" aria-label="Log in" title="Log in">&rarr;</button>
+                        </div>
+                        <div class="auth-links">
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <div class="auth-divider" aria-hidden="true"></div>
+
+            <div class="auth-logo">
+                <div class="logo-circle">
+                    <div>
+                        <img src="img/logo.svg" alt="CMS logo">
+                        <strong>CMS</strong>
+                        <span class="muted small">Courier Management System</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Courier Management System · EIS 2026/27 · Group G04
+    </footer>
+</body>
+</html>
