@@ -25,6 +25,12 @@
 .auth-links { display: flex; flex-direction: column; gap: 6px; margin-top: 26px; padding-left: 14px; }
 .auth-links a { color: var(--text); }
 
+/* Login / Register / Forgot password are sections of the same page.
+   Pure CSS: the section in the URL hash is shown (login.html#register). */
+.auth-section { display: none; scroll-margin-top: 100vh; }
+.auth-section:target, .auth-section.default { display: block; }
+.auth-col:has(.auth-section:target) .auth-section.default:not(:target) { display: none; }
+
 @media (max-width: 860px) {
     .auth-panel { grid-template-columns: 1fr; gap: 30px; }
     .auth-divider { display: none; }

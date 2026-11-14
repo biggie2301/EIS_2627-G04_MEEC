@@ -46,7 +46,46 @@
                             <button type="submit" class="btn btn-round" aria-label="Log in" title="Log in">&rarr;</button>
                         </div>
                         <div class="auth-links">
+                            <a href="#register">I don't have an account yet</a>
                         </div>
+                    </form>
+                </section>
+
+                <!-- ============ REGISTER ============ -->
+                <section id="register" class="auth-section" aria-labelledby="register-title">
+                    <h1 id="register-title" class="auth-title">Create account</h1>
+                    <p class="muted mb-2">Clients can start immediately. Courier accounts are validated by our staff and staff accounts by an administrator.</p>
+                    <form id="register-form" class="card">
+                        <fieldset class="static-wrap" disabled>
+                        <div class="form-grid">
+                            <div class="field full">
+                                <label for="reg-role">I want to register as <span class="req">*</span></label>
+                                <select id="reg-role" required data-label="Role">
+                                    <option value="">— Select a role —</option>
+                                    <option value="client">Client — send parcels</option>
+                                    <option value="courier">Courier — deliver parcels</option>
+                                    <option value="staff">Staff — back-office</option>
+                                </select>
+                                <div class="field-error"></div>
+                            </div>
+                            <div class="field"><label for="reg-name">Full name <span class="req">*</span></label><input id="reg-name" required data-label="Full name" autocomplete="name"><div class="field-error"></div></div>
+                            <div class="field"><label for="reg-username">Username <span class="req">*</span></label><input id="reg-username" required data-rule="username" data-label="Username" autocomplete="username"><div class="field-error"></div></div>
+                            <div class="field"><label for="reg-email">Email <span class="req">*</span></label><input id="reg-email" type="email" required data-rule="email" data-label="Email" autocomplete="email"><div class="field-error"></div></div>
+                            <div class="field"><label for="reg-phone">Phone <span class="req">*</span></label><input id="reg-phone" type="tel" required data-rule="phone" data-label="Phone" placeholder="912345678" autocomplete="tel"><div class="field-error"></div></div>
+                            <div class="field"><label for="reg-nif">NIF <span class="req">*</span></label><input id="reg-nif" inputmode="numeric" maxlength="9" required data-rule="nif" data-label="NIF" placeholder="123456789"><div class="field-error"></div></div>
+                            <div class="field"></div>
+                            <div class="field"><label for="reg-pw">Password <span class="req">*</span></label><input id="reg-pw" type="password" required data-rule="password" data-label="Password" autocomplete="new-password"><div class="hint">At least 6 characters, letters and numbers</div><div class="field-error"></div></div>
+                            <div class="field"><label for="reg-pw2">Confirm password <span class="req">*</span></label><input id="reg-pw2" type="password" required data-match="reg-pw" data-label="Confirm password" autocomplete="new-password"><div class="field-error"></div></div>
+                            <div class="field full">
+                                <label class="checkbox"><input type="checkbox" id="reg-terms" required data-label="Terms"> I accept the terms of service and privacy policy <span class="req">*</span></label>
+                                <div class="field-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <a href="#login" class="btn btn-outline">I already have an account</a>
+                            <button type="submit" class="btn">Create account</button>
+                        </div>
+                        </fieldset>
                     </form>
                 </section>
             </div>
