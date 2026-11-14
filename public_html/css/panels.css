@@ -16,3 +16,11 @@
 .section-h2 { font-size: 1.4rem; margin-top: 28px; }
 .alert .actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .alert-meta { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+
+/* Vehicle approval cards */
+.vehicle-card { margin-bottom: 18px; }
+.vehicle-card .head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li { display: flex; gap: 8px; align-items: center; margin-bottom: 4px; }
+.doc-table th { background: #f2f3f4 !important; color: var(--text) !important; width: 110px; }
+.blocked-msg { color: var(--danger); font-size: .88rem; align-self: center; }
