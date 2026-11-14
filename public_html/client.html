@@ -23,6 +23,7 @@
         </div>
         <nav>
             <ul class="side-nav">
+                <li><a href="#place-order">Place Order</a></li>
                 <li><a href="#tracking">Tracking <span class="count ok">3</span></a></li>
             </ul>
         </nav>
@@ -36,6 +37,55 @@
                 <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 L4 12 L10 18"/><path d="M4 12 H19 a8 8 0 0 1 0 16 H13"/></svg>
             </a>
         </div>
+
+        <!-- ============ PLACE ORDER (UC-04, UC-05) ============ -->
+        <section class="view" id="place-order" aria-labelledby="t-place">
+            <h1 class="page-title" id="t-place">Place Order</h1>
+            <p class="page-subtitle">Choose your products and set the origin and destination GPS coordinates.</p>
+
+            <div class="grid grid-2 align-start">
+                <form id="order-form" class="card">
+                    <h3>New order</h3>
+                    <fieldset>
+                        <legend>1 · Products <span class="req">*</span></legend>
+                        <div class="product-pick" id="order-products">
+                            <label><input type="checkbox" name="product" value="1"><span><strong>Laptop Dell XPS 15</strong><br><span class="small muted">Electronics · 2,5 kg · 0,012 m³</span></span><input type="number" min="1" max="99" value="1" aria-label="Quantity"></label>
+                            <label><input type="checkbox" name="product" value="2"><span><strong>Box of engineering books</strong><br><span class="small muted">Books · 12 kg · 0,04 m³</span></span><input type="number" min="1" max="99" value="1" aria-label="Quantity"></label>
+                        </div>
+                        <div class="field"><div class="field-error" id="products-error"></div></div>
+                    </fieldset>
+
+                    <fieldset class="mt-2">
+                        <legend>2 · Origin (pick-up)</legend>
+                        <div class="form-grid">
+                            <div class="field"><label for="o-lat">Latitude <span class="req">*</span></label><input id="o-lat" required data-rule="lat" data-label="Origin latitude" placeholder="41.177800" inputmode="decimal"><div class="field-error"></div></div>
+                            <div class="field"><label for="o-lng">Longitude <span class="req">*</span></label><input id="o-lng" required data-rule="lng" data-label="Origin longitude" placeholder="-8.597900" inputmode="decimal"><div class="field-error"></div></div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mt-2">
+                        <legend>3 · Destination (delivery)</legend>
+                        <div class="form-grid">
+                            <div class="field"><label for="d-lat">Latitude <span class="req">*</span></label><input id="d-lat" required data-rule="lat" data-label="Destination latitude" placeholder="41.148600" inputmode="decimal"><div class="field-error"></div></div>
+                            <div class="field"><label for="d-lng">Longitude <span class="req">*</span></label><input id="d-lng" required data-rule="lng" data-label="Destination longitude" placeholder="-8.611000" inputmode="decimal"><div class="field-error"></div></div>
+                        </div>
+                    </fieldset>
+
+                    <p class="small muted mt-2 mb-0">The price and the minimum vehicle type are calculated when the order is placed.</p>
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-outline">Clear</button>
+                        <button type="submit" class="btn">Place order</button>
+                    </div>
+                </form>
+
+                <div class="card">
+                    <h3>Map</h3>
+                    <p class="small muted">Order map centred on FEUP (blue marker). Origin and destination markers are added in Sprint 2.</p>
+                    <div id="order-map" class="map tall" aria-label="Order map"><div class="map-placeholder">MAP</div></div>
+                    <div class="map-legend"><span class="lg-feup">FEUP</span></div>
+                </div>
+            </div>
+        </section>
 
         <!-- ============ TRACKING (UC-06) — follows the sketch ============ -->
         <section class="view default" id="tracking" aria-labelledby="t-track">

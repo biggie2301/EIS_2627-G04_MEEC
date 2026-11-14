@@ -44,6 +44,14 @@
     font-family: var(--font-title); font-size: 3.4rem; font-weight: 700; color: #fff;
 }
 
+/* ---------- Place order ---------- */ 
+.product-pick { display: grid; gap: 8px; max-height: 280px; overflow: auto; padding: 4px; }
+.product-pick label {
+    display: grid; grid-template-columns: 22px 1fr 80px; gap: 10px; align-items: center;
+    background: var(--surface-2); padding: 8px 10px; border-radius: 6px; border: 1px solid var(--border);
+}   
+.product-pick input[type="number"] { width: 100%; padding: 5px 8px; border: 1px solid #bfc3c8; border-radius: 4px; font: inherit; }
+
 @media (max-width: 1100px) {
     .tracking-grid { grid-template-columns: 1fr; }
     .timeline { display: flex; gap: 10px; }
