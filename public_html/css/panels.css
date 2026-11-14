@@ -1,0 +1,18 @@
+/* ==========================================================================
+   CMS — Staff panel (staff.html) and Admin panel (admin.html) styles
+   No sketch was provided for these pages: they reuse the dashboard layout
+   of the Client / Courier sketches (base.css).
+   ========================================================================== */
+
+/* Highlight the sidebar item of the section being shown (no JavaScript) */
+.staff .dash:not(:has(.view:target)) .side-nav a[href="#alerts"],
+.dash:has(#alerts:target) .side-nav a[href="#alerts"],
+.dash:has(#couriers:target) .side-nav a[href="#couriers"],
+.dash:has(#vehicles:target) .side-nav a[href="#vehicles"],
+.dash:has(#fleet:target) .side-nav a[href="#fleet"],
+.dash:has(#account:target) .side-nav a[href="#account"] {
+    background: var(--pill); font-weight: 700; box-shadow: inset 0 0 0 1px #bfc1c4;
+}
+.section-h2 { font-size: 1.4rem; margin-top: 28px; }
+.alert .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.alert-meta { font-size: .85rem; color: var(--muted); margin-top: 4px; }

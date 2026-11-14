@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff panel · CMS</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/panels.css">
+</head>
+<body class="staff">
+<!-- No sketch was provided for this page: it reuses the dashboard layout of the Client / Courier sketches. -->
+<div class="dash">
+    <aside class="sidebar" aria-label="Staff menu">
+        <div class="profile">
+            <div class="avatar" aria-hidden="true">RC</div>
+            <div>
+                <div class="profile-name">Rui Costa</div>
+                <div class="profile-id">Staff #000002</div>
+                <span class="badge badge-success">Validated</span>
+            </div>
+        </div>
+        <nav>
+            <ul class="side-nav">
+                <li><a href="#alerts">Alerts <span class="count">2</span></a></li>
+                <li><a href="#couriers">Courier Approvals</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer"><a href="index.html">CMS home</a></div>
+    </aside>
+
+    <main class="main">
+        <fieldset class="static-wrap" disabled>
+        <div class="main-top">
+            <a class="icon-btn" href="index.html" title="Log out" aria-label="Log out">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 L4 12 L10 18"/><path d="M4 12 H19 a8 8 0 0 1 0 16 H13"/></svg>
+            </a>
+        </div>
+
+        <!-- ============ ALERTS (UC-20) ============ -->
+        <section class="view default" id="alerts" aria-labelledby="t-alerts">
+            <h1 class="page-title" id="t-alerts">Alerts</h1>
+            <p class="page-subtitle">Updated and outdated vehicle information that needs your attention.</p>
+            <div class="grid grid-4 mb-2">
+                <div class="card kpi"><span class="k-label">Couriers to validate</span><span class="k-value">0</span></div>
+                <div class="card kpi"><span class="k-label">Vehicles to approve</span><span class="k-value">1</span></div>
+                <div class="card kpi"><span class="k-label">Expired documents</span><span class="k-value" style="color:var(--danger)">0</span></div>
+                <div class="card kpi"><span class="k-label">Expiring ≤ 30 days</span><span class="k-value" style="color:var(--warning)">1</span></div>
+            </div>
+
+            <div class="alert alert-info">
+                <div class="grow"><span class="badge badge-info">Updated</span> <strong style="display:inline">BIKE-0031 · Bike Urban Arrow Cargo</strong>
+                    <div class="mt-1">New vehicle registered with insurance and inspection documents.</div>
+                    <div class="alert-meta">Courier: Miguel Santos · 02/nov/2026 · Insurance 29/sep/2027 · Inspection 29/sep/2027</div></div>
+                <div class="actions"><button type="button" class="btn btn-outline btn-sm">Review</button><button type="button" class="btn btn-dark btn-sm">Mark resolved</button></div>
+            </div>
+            <div class="alert alert-warning">
+                <div class="grow"><span class="badge badge-warning">Expiring soon</span> <strong style="display:inline">AA-12-BC · Van Renault Kangoo E-Tech</strong>
+                    <div class="mt-1">Inspection certificate expires in less than 30 days.</div>
+                    <div class="alert-meta">Courier: Miguel Santos · 01/nov/2026 · Insurance 01/jun/2027 · Inspection 28/nov/2026</div></div>
+                <div class="actions"><button type="button" class="btn btn-outline btn-sm">Review</button><button type="button" class="btn btn-dark btn-sm">Mark resolved</button></div>
+            </div>
+        </section>
+
+        <!-- ============ COURIER APPROVALS (UC-18) ============ -->
+        <section class="view" id="couriers" aria-labelledby="t-cour">
+            <h1 class="page-title" id="t-cour">Courier Approvals</h1>
+            <p class="page-subtitle">Validate new courier accounts before they can accept jobs.</p>
+            <div class="table-wrap">
+                <table class="table">
+                    <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>NIF</th><th>Registered</th><th class="num">Vehicles</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr><td colspan="7" class="muted" style="text-align:center">No courier accounts waiting for validation.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 class="section-h2">All couriers</h2>
+            <div class="table-wrap">
+                <table class="table">
+                    <thead><tr><th>Name</th><th>Email</th><th>Status</th><th>Validated by</th><th class="num">Vehicles</th><th class="num">Deliveries</th><th>Active route</th></tr></thead>
+                    <tbody>
+                        <tr><td>Miguel Santos</td><td>courier@cms.pt</td><td><span class="badge badge-success">Approved</span></td><td>Rui Costa<br><span class="small muted">05/jul/2026</span></td><td class="num">2</td><td class="num">1</td><td>Route #2 <span class="badge badge-warning">In Progress</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        </fieldset>
+    </main>
+</div>
+</body>
+</html>
