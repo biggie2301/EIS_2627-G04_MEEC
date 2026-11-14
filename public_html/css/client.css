@@ -44,13 +44,19 @@
     font-family: var(--font-title); font-size: 3.4rem; font-weight: 700; color: #fff;
 }
 
-/* ---------- Place order ---------- */ 
+/* ---------- Place order ---------- */
 .product-pick { display: grid; gap: 8px; max-height: 280px; overflow: auto; padding: 4px; }
 .product-pick label {
     display: grid; grid-template-columns: 22px 1fr 80px; gap: 10px; align-items: center;
     background: var(--surface-2); padding: 8px 10px; border-radius: 6px; border: 1px solid var(--border);
-}   
+}
 .product-pick input[type="number"] { width: 100%; padding: 5px 8px; border: 1px solid #bfc3c8; border-radius: 4px; font: inherit; }
+
+/* Leaflet map markers */
+.pin { width: 22px; height: 22px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .4); }
+.pin-origin { background: #2e7d4f; }
+.pin-dest { background: #b3261e; }
+.pin-feup { background: #1f5fa8; }
 
 @media (max-width: 1100px) {
     .tracking-grid { grid-template-columns: 1fr; }
