@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client area · CMS</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/client.css">
+</head>
+<body>
+<div class="dash">
+    <!-- ============ Sidebar (Client sketch) ============ -->
+    <aside class="sidebar" aria-label="Client menu">
+        <div class="profile">
+            <div class="avatar" aria-hidden="true">CR</div>
+            <div>
+                <div class="profile-name">Carla Rodrigues</div>
+                <div class="profile-id">Client #000009</div>
+                <span class="badge badge-success">Validated</span>
+            </div>
+        </div>
+        <nav>
+            <ul class="side-nav">
+                <li><a href="#tracking">Tracking <span class="count ok">3</span></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer"><a href="index.html">CMS home</a></div>
+    </aside>
+
+    <main class="main">
+        <fieldset class="static-wrap" disabled>
+        <div class="main-top">
+            <a class="icon-btn" href="index.html" title="Log out" aria-label="Log out">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 L4 12 L10 18"/><path d="M4 12 H19 a8 8 0 0 1 0 16 H13"/></svg>
+            </a>
+        </div>
+
+        <!-- ============ TRACKING (UC-06) — follows the sketch ============ -->
+        <section class="view default" id="tracking" aria-labelledby="t-track">
+            <h1 class="page-title" id="t-track">Tracking</h1>
+            <p class="page-subtitle">Order Number &rarr; <span class="order-number">000001004</span></p>
+
+            <div class="tracking-grid">
+                <div>
+                    <div class="order-card">
+                        <div class="status-line"><span class="status-dot"></span>In Transit</div>
+                        <dl>
+                            <dt>Date:</dt><dd>02/nov/2026</dd>
+                            <dt>Pick-up:</dt><dd>41°10'40.1"N 8°35'52.4"W</dd>
+                            <dt>Delivery:</dt><dd>41°14'08.5"N 8°37'11.6"W</dd>
+                            <dt>Estimated Delivery:</dt><dd>03/nov/2026</dd>
+                            <dt>by:</dt><dd>11:00h</dd>
+                            <dt>Number of items:</dt><dd>2 item(s)</dd>
+                            <dt>Weight:</dt><dd>24 kg</dd>
+                            <dt>Courier:</dt><dd>Miguel Santos</dd>
+                            <dt></dt><dd>Van · Renault Kangoo E-Tech</dd>
+                        </dl>
+                        <div class="total"><strong>Order Total:</strong> 11,11€</div>
+                    </div>
+                    <p class="small muted mt-2">Other active orders: <span class="order-number">000001005</span>, <span class="order-number">000001006</span> — waiting for a courier.</p>
+                </div>
+                <ol class="timeline" aria-label="Order progress">
+                    <li class="done"><span class="node">&#10003;</span><span>Order Placed<span class="when">02/nov/2026 09:00h</span></span></li>
+                    <li class="done"><span class="node">&#10003;</span><span>Shipped<span class="when">03/nov/2026 07:00h</span></span></li>
+                    <li class="current"><span class="node">&#9679;</span><span>In transit<span class="when">03/nov/2026 08:00h</span></span></li>
+                    <li><span class="node"></span><span>Delivered</span></li>
+                </ol>
+            </div>
+
+            <div id="track-map" class="map mt-3" style="max-width:880px" aria-label="Order route map"><div class="map-placeholder">MAP</div></div>
+            <div class="map-legend"><span class="lg-feup">FEUP (pick-up)</span><span class="lg-dest">Destination</span></div>
+        </section>
+        </fieldset>
+    </main>
+</div>
+</body>
+</html>

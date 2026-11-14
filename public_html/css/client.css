@@ -1,0 +1,53 @@
+/* ==========================================================================
+   CMS — Client page styles (client.html) — follows the Client sketch
+   ========================================================================== */
+
+/* Highlight the sidebar item of the section being shown (no JavaScript) */
+.dash:not(:has(.view:target)) .side-nav a[href="#tracking"],
+.dash:has(#tracking:target) .side-nav a[href="#tracking"],
+.dash:has(#place-order:target) .side-nav a[href="#place-order"],
+.dash:has(#history:target) .side-nav a[href="#history"],
+.dash:has(#products:target) .side-nav a[href="#products"],
+.dash:has(#account:target) .side-nav a[href="#account"] {
+    background: var(--pill); font-weight: 700; box-shadow: inset 0 0 0 1px #bfc1c4;
+}
+
+/* ---------- Tracking ---------- */
+.order-number { font-family: var(--mono); }
+.tracking-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; align-items: start; }
+.order-card {
+    background: #c9cbce55; border-radius: 22px; padding: 24px 28px; max-width: 560px;
+    font-family: var(--mono); font-size: .95rem;
+}
+.order-card .status-line { display: flex; align-items: center; gap: 12px; font-family: var(--font); margin-bottom: 14px; font-size: 1.05rem; }
+.status-dot { width: 24px; height: 24px; border-radius: 50%; background: #4c9a5f; display: inline-block; }
+.order-card dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 10px; margin: 0; }
+.order-card dt { font-weight: 700; text-align: right; }
+.order-card dd { margin: 0; }
+.order-card .total { text-align: right; margin-top: 10px; }
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: flex; align-items: center; gap: 14px; position: relative; padding-bottom: 52px; font-size: 1.2rem; font-family: var(--font-title); }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::after { content: ""; position: absolute; left: 36px; top: 74px; bottom: 0; width: 2px; background: #fff; }
+.timeline li:last-child::after { display: none; }
+.timeline .node {
+    width: 74px; height: 74px; border-radius: 50%; background: #d9dbde; flex: none;
+    display: grid; place-items: center; border: 3px solid transparent; color: #fff; font-size: 1.6rem;
+}
+.timeline li.done .node { background: var(--green); }
+.timeline li.current .node { background: #fff; border-color: var(--green); color: var(--green); }
+.timeline .when { display: block; font-family: var(--font); font-size: .8rem; color: var(--muted); }
+
+.map-placeholder {
+    height: 100%; display: grid; place-items: center;
+    font-family: var(--font-title); font-size: 3.4rem; font-weight: 700; color: #fff;
+}
+
+@media (max-width: 1100px) {
+    .tracking-grid { grid-template-columns: 1fr; }
+    .timeline { display: flex; gap: 10px; }
+    .timeline li { flex-direction: column; padding-bottom: 0; text-align: center; flex: 1; font-size: 1rem; }
+    .timeline li::after { display: none; }
+    .timeline .node { width: 56px; height: 56px; }
+}
