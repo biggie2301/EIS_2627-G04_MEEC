@@ -24,6 +24,9 @@
         <nav>
             <ul class="side-nav">
                 <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#staff">Staff Approvals</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#account">Account</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer"><a href="index.html">CMS home</a></div>
@@ -107,6 +110,63 @@
                     </table>
                 </div>
             </div>
+        </section>
+
+        <!-- ============ STAFF APPROVALS (UC-21) ============ -->
+        <section class="view" id="staff" aria-labelledby="t-staff">
+            <h1 class="page-title" id="t-staff">Staff Approvals</h1>
+            <p class="page-subtitle">Validate new staff members before they can access the back-office.</p>
+            <div class="table-wrap">
+                <table class="table">
+                    <thead><tr><th>Name</th><th>Username</th><th>Email</th><th>Phone</th><th>NIF</th><th>Registered</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr><td colspan="7" class="muted" style="text-align:center">No staff members waiting for validation.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 class="section-h2">Staff team</h2>
+            <div class="table-wrap">
+                <table class="table">
+                    <thead><tr><th>Name</th><th>Email</th><th>Status</th><th>Validated</th><th class="num">Couriers validated</th><th class="num">Vehicles approved</th></tr></thead>
+                    <tbody>
+                        <tr><td>Rui Costa</td><td>staff@cms.pt</td><td><span class="badge badge-success">Approved</span></td><td>06/jun/2026</td><td class="num">1</td><td class="num">1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ USERS ============ -->
+        <section class="view" id="users" aria-labelledby="t-users">
+            <h1 class="page-title" id="t-users">Users</h1>
+            <p class="page-subtitle">Every account in the system.</p>
+            <div class="table-wrap">
+                <table class="table">
+                    <thead><tr><th>ID</th><th>Name</th><th>Username</th><th>Email</th><th>Role</th><th>Status</th><th>Created</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ana Ferreira</td><td>admin</td><td>admin@cms.pt</td><td>Admin</td><td><span class="badge badge-success">Approved</span></td><td>16/apr/2026</td></tr>
+                        <tr><td>2</td><td>Rui Costa</td><td>rcosta</td><td>staff@cms.pt</td><td>Staff</td><td><span class="badge badge-success">Approved</span></td><td>04/jun/2026</td></tr>
+                        <tr><td>3</td><td>Miguel Santos</td><td>msantos</td><td>courier@cms.pt</td><td>Courier</td><td><span class="badge badge-success">Approved</span></td><td>04/jul/2026</td></tr>
+                        <tr><td>4</td><td>Carla Rodrigues</td><td>crodrigues</td><td>client@cms.pt</td><td>Client</td><td><span class="badge badge-success">Approved</span></td><td>14/aug/2026</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ ACCOUNT (UC-23) ============ -->
+        <section class="view" id="account" aria-labelledby="t-acc">
+            <h1 class="page-title" id="t-acc">Account</h1>
+            <p class="page-subtitle">Edit your personal details.</p>
+            <form id="account-form" class="card" style="max-width:900px">
+                <div class="form-grid">
+                    <div class="field"><label for="acc-name">Full name <span class="req">*</span></label><input id="acc-name" required value="Ana Ferreira" data-label="Full name"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-username">Username <span class="req">*</span></label><input id="acc-username" required value="admin" data-rule="username" data-label="Username"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-email">Email <span class="req">*</span></label><input id="acc-email" type="email" required value="admin@cms.pt" data-rule="email" data-label="Email"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-phone">Phone <span class="req">*</span></label><input id="acc-phone" type="tel" required value="912345601" data-rule="phone" data-label="Phone"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-nif">NIF <span class="req">*</span></label><input id="acc-nif" required value="245678901" maxlength="9" data-rule="nif" data-label="NIF"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-pw">New password <span class="muted small">(optional)</span></label><input id="acc-pw" type="password" data-rule="password" data-label="New password" autocomplete="new-password"><div class="field-error"></div></div>
+                </div>
+                <div class="form-actions"><button type="reset" class="btn btn-outline">Discard changes</button><button type="submit" class="btn">Save changes</button></div>
+            </form>
         </section>
         </fieldset>
     </main>
