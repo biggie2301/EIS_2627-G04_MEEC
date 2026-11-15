@@ -24,3 +24,24 @@
 .checklist li { display: flex; gap: 8px; align-items: center; margin-bottom: 4px; }
 .doc-table th { background: #f2f3f4 !important; color: var(--text) !important; width: 110px; }
 .blocked-msg { color: var(--danger); font-size: .88rem; align-self: center; }
+
+/* ---------- Admin dashboard ---------- */
+.admin .dash:not(:has(.view:target)) .side-nav a[href="#dashboard"],
+.dash:has(#dashboard:target) .side-nav a[href="#dashboard"],
+.dash:has(#staff:target) .side-nav a[href="#staff"],
+.dash:has(#users:target) .side-nav a[href="#users"] {
+    background: var(--pill); font-weight: 700; box-shadow: inset 0 0 0 1px #bfc1c4;
+}
+/* horizontal bar chart (one series → one colour) */
+.bars { display: grid; gap: 12px; }
+.bar-row { display: grid; grid-template-columns: 120px 1fr 40px; gap: 12px; align-items: center; font-size: .95rem; }
+.bar-track { height: 18px; background: #eceef0; border-radius: 4px; overflow: hidden; }
+.bar-fill { height: 100%; background: var(--green); border-radius: 0 4px 4px 0; }
+.bar-row .v { text-align: right; font-weight: 700; }
+/* column chart */
+.colchart { display: flex; align-items: flex-end; gap: 10px; height: 200px; border-bottom: 1px solid #c9ccd0; }
+.colchart .col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; gap: 4px; }
+.colchart .bar { width: 100%; max-width: 44px; background: var(--green); border-radius: 4px 4px 0 0; }
+.colchart .cv { font-size: .8rem; font-weight: 700; }
+.collabels { display: flex; gap: 10px; padding-top: 6px; }
+.collabels span { flex: 1; text-align: center; font-size: .78rem; color: var(--muted); }
