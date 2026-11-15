@@ -26,6 +26,9 @@
             <ul class="side-nav">
                 <li><a href="#place-order">Place Order</a></li>
                 <li><a href="#tracking">Tracking <span class="count ok">3</span></a></li>
+                <li><a href="#history">Past Orders</a></li>
+                <li><a href="#products">My Products</a></li>
+                <li><a href="#account">Account</a></li>
             </ul>
         </nav>
         <div class="sidebar-footer"><a href="index.html">CMS home</a></div>
@@ -54,6 +57,7 @@
                             <label><input type="checkbox" name="product" value="2"><span><strong>Box of engineering books</strong><br><span class="small muted">Books · 12 kg · 0,04 m³</span></span><input type="number" min="1" max="99" value="1" aria-label="Quantity"></label>
                         </div>
                         <div class="field"><div class="field-error" id="products-error"></div></div>
+                        <p class="small muted mb-0">Missing a product? Register it in <a href="#products">My Products</a>.</p>
                     </fieldset>
 
                     <fieldset class="mt-2">
@@ -122,6 +126,73 @@
 
             <div id="track-map" class="map mt-3" style="max-width:880px" aria-label="Order route map"><div class="map-placeholder">MAP</div></div>
             <div class="map-legend"><span class="lg-feup">FEUP (pick-up)</span><span class="lg-dest">Destination</span></div>
+        </section>
+
+        <!-- ============ PAST ORDERS (UC-07) ============ -->
+        <section class="view" id="history" aria-labelledby="t-hist">
+            <h1 class="page-title" id="t-hist">Past Orders</h1>
+            <p class="page-subtitle">Your completed deliveries.</p>
+            <div class="table-wrap">
+                <table class="table">
+                    <thead><tr><th>Order</th><th>Placed</th><th>Delivered</th><th>Route</th><th>Products</th><th class="num">Weight</th><th>Courier / vehicle</th><th>e-POD</th><th class="num">Total</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><code>000001001</code><br><span class="badge badge-success">Completed</span></td><td>01/nov/2026</td><td>02/nov/2026 15:00h</td>
+                            <td class="small">41°10'40.1"N 8°35'52.4"W<br>&rarr; 41°08'55.0"N 8°36'39.6"W</td><td>1× Laptop Dell XPS 15</td><td class="num">2,5 kg</td>
+                            <td>Miguel Santos<br><span class="small muted">Van · AA-12-BC</span></td><td>Signature<br><span class="small muted">Luís Moreira</span></td><td class="num"><strong>7,42€</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ MY PRODUCTS (UC-04) ============ -->
+        <section class="view" id="products" aria-labelledby="t-prod">
+            <h1 class="page-title" id="t-prod">My Products</h1>
+            <p class="page-subtitle">Products you registered and can add to orders.</p>
+            <div class="grid grid-2 align-start">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead><tr><th>#</th><th>Description</th><th>Category</th><th class="num">Weight</th><th class="num">Volume</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Laptop Dell XPS 15</td><td>Electronics</td><td class="num">2,5 kg</td><td class="num">0,012 m³</td></tr>
+                            <tr><td>2</td><td>Box of engineering books</td><td>Books</td><td class="num">12 kg</td><td class="num">0,04 m³</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <form id="product-form" class="card">
+                    <h3>Register product</h3>
+                    <div class="form-grid">
+                        <div class="field full"><label for="p-desc">Description <span class="req">*</span></label><input id="p-desc" required maxlength="120" data-label="Description" placeholder="e.g. Laptop, box of books…"><div class="field-error"></div></div>
+                        <div class="field full"><label for="p-cat">Category <span class="req">*</span></label>
+                            <select id="p-cat" required data-label="Category">
+                                <option value="">— Select —</option>
+                                <option>Electronics</option><option>Documents</option><option>Books</option><option>Clothing</option>
+                                <option>Food &amp; Beverage</option><option>Furniture</option><option>Home</option><option>Sports</option><option>Other</option>
+                            </select><div class="field-error"></div></div>
+                        <div class="field"><label for="p-w">Weight (kg) <span class="req">*</span></label><input id="p-w" required data-rule="positive" data-max="10000" data-label="Weight" inputmode="decimal" placeholder="2.5"><div class="field-error"></div></div>
+                        <div class="field"><label for="p-v">Volume (m³) <span class="req">*</span></label><input id="p-v" required data-rule="positive" data-max="50" data-label="Volume" inputmode="decimal" placeholder="0.012"><div class="hint">length × width × height in metres</div><div class="field-error"></div></div>
+                    </div>
+                    <div class="form-actions"><button type="reset" class="btn btn-outline">Clear</button><button type="submit" class="btn">Save product</button></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ============ ACCOUNT (UC-23) ============ -->
+        <section class="view" id="account" aria-labelledby="t-acc">
+            <h1 class="page-title" id="t-acc">Account</h1>
+            <p class="page-subtitle">Edit your personal details.</p>
+            <form id="account-form" class="card" style="max-width:900px">
+                <div class="form-grid">
+                    <div class="field"><label for="acc-name">Full name <span class="req">*</span></label><input id="acc-name" required value="Carla Rodrigues" data-label="Full name"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-username">Username <span class="req">*</span></label><input id="acc-username" required value="crodrigues" data-rule="username" data-label="Username"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-email">Email <span class="req">*</span></label><input id="acc-email" type="email" required value="client@cms.pt" data-rule="email" data-label="Email"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-phone">Phone <span class="req">*</span></label><input id="acc-phone" type="tel" required value="919012309" data-rule="phone" data-label="Phone"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-nif">NIF <span class="req">*</span></label><input id="acc-nif" required value="223456789" maxlength="9" data-rule="nif" data-label="NIF"><div class="field-error"></div></div>
+                    <div class="field"><label for="acc-pw">New password <span class="muted small">(optional)</span></label><input id="acc-pw" type="password" data-rule="password" data-label="New password" autocomplete="new-password"><div class="field-error"></div></div>
+                </div>
+                <div class="form-actions"><button type="reset" class="btn btn-outline">Discard changes</button><button type="submit" class="btn">Save changes</button></div>
+            </form>
         </section>
         </fieldset>
     </main>
