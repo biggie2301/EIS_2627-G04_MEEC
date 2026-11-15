@@ -46,17 +46,30 @@
                             <button type="submit" class="btn btn-round" aria-label="Log in" title="Log in">&rarr;</button>
                         </div>
                         <div class="auth-links">
+                            <a href="#forgot">I forgot my password</a>
                             <a href="#register">I don't have an account yet</a>
                         </div>
                     </form>
+
+                    <!-- Sprint 1 prototype: there is no authentication yet, so these links open each role area -->
+                    <div class="card proto-nav" >
+                        <h3>Fast login (Sprint 1 prototype)</h3>
+                        <p class="small muted mb-0">Authentication arrives in Sprint 2. Log in above with <code>client@cms.pt</code>, <code>courier@cms.pt</code>, <code>staff@cms.pt</code> or <code>admin@cms.pt</code> (any password), or open an area directly:</p>
+                        <div class="links">
+                            <a class="btn btn-outline btn-sm" href="client.html">Client area</a>
+                            <a class="btn btn-outline btn-sm" href="courier.html">Courier area</a>
+                            <a class="btn btn-outline btn-sm" href="staff.html">Staff panel</a>
+                            <a class="btn btn-outline btn-sm" href="admin.html">Admin panel</a>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- ============ REGISTER ============ -->
                 <section id="register" class="auth-section" aria-labelledby="register-title">
                     <h1 id="register-title" class="auth-title">Create account</h1>
                     <p class="muted mb-2">Clients can start immediately. Courier accounts are validated by our staff and staff accounts by an administrator.</p>
-                    <form id="register-form" class="card">
-                        <fieldset class="static-wrap" disabled>
+                    <form id="register-form" class="card" data-validate>
+                        <fieldset class="static-wrap">
                         <div class="form-grid">
                             <div class="field full">
                                 <label for="reg-role">I want to register as <span class="req">*</span></label>
@@ -88,6 +101,21 @@
                         </fieldset>
                     </form>
                 </section>
+
+                <!-- ============ FORGOT PASSWORD ============ -->
+                <section id="forgot" class="auth-section" aria-labelledby="forgot-title">
+                    <h1 id="forgot-title" class="auth-title">Recover password</h1>
+                    <p class="muted mb-2">Enter the email of your account and we will send you a reset link.</p>
+                    <form id="forgot-form" class="card" data-validate>
+                        <fieldset class="static-wrap">
+                        <div class="field"><label for="forgot-email">Account email <span class="req">*</span></label><input id="forgot-email" type="email" required data-rule="email" data-label="Email"><div class="field-error"></div></div>
+                        <div class="form-actions">
+                            <a href="#login" class="btn btn-outline">Back to login</a>
+                            <button type="submit" class="btn">Send reset link</button>
+                        </div>
+                        </fieldset>
+                    </form>
+                </section>
             </div>
 
             <div class="auth-divider" aria-hidden="true"></div>
@@ -109,5 +137,6 @@
     </footer>
 
     <script src="js/validation.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
