@@ -31,6 +31,10 @@
 .auth-section:target, .auth-section.default { display: block; }
 .auth-col:has(.auth-section:target) .auth-section.default:not(:target) { display: none; }
 
+.proto-nav { margin-top: 28px; }
+.proto-nav h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.proto-nav .links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+
 @media (max-width: 860px) {
     .auth-panel { grid-template-columns: 1fr; gap: 30px; }
     .auth-divider { display: none; }
