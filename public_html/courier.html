@@ -6,6 +6,7 @@
     <title>Courier area · CMS</title>
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/courier.css">
 </head>
@@ -23,6 +24,7 @@
         </div>
         <nav>
             <ul class="side-nav">
+                <li><a href="#current">Current Job <span class="count ok">1</span></a></li>
                 <li><a href="#jobs">Available Jobs <span class="count ok">2</span></a></li>
             </ul>
         </nav>
@@ -37,10 +39,64 @@
             </a>
         </div>
 
+        <!-- ============ CURRENT JOB (UC-10, UC-14, UC-15, UC-16, UC-17) ============ -->
+        <section class="view" id="current" aria-labelledby="t-cur">
+            <h1 class="page-title normal-case" id="t-cur">Current Job</h1>
+            <p class="page-subtitle">Route #2 · 1 order · Van · Renault Kangoo E-Tech (AA-12-BC) · 24 kg / 650 kg</p>
+
+            <div class="stepper" aria-label="Order status">
+                <div class="s done">Initiated</div>
+                <div class="s current">In Progress</div>
+                <div class="s">Completed / Cancelled</div>
+            </div>
+
+            <div class="grid grid-2 align-start">
+                <div>
+                    <div class="stop">
+                        <h4>Order #000001004 <span class="badge badge-warning">In Progress</span></h4>
+                        <div class="small">Pick-up: 41°10'40.1"N 8°35'52.4"W<br>Delivery: 41°14'08.5"N 8°37'11.6"W</div>
+                        <div class="small muted">2 item(s) · 24 kg · 6,7 km · Client: Carla Rodrigues (919012309)</div>
+                        <div class="row mt-2">
+                            <button type="button" class="btn btn-sm is-off" title="Already in progress">Start &rarr; In Progress</button>
+                            <button type="button" class="btn btn-sm">Complete (e-POD)</button>
+                            <button type="button" class="btn btn-outline btn-sm">Cancel order</button>
+                        </div>
+                        <p class="small muted mt-1 mb-0">Cancelled orders return to the list of available jobs.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Navigation</h3>
+                    <div id="nav-map" class="map tall" aria-label="Navigation map"><div class="map-placeholder">MAP</div></div>
+                    <div class="map-legend"><span class="lg-feup">FEUP (pick-up)</span><span class="lg-dest">Delivery</span></div>
+                </div>
+            </div>
+        </section>
+
         <!-- ============ AVAILABLE JOBS (UC-09, UC-10, UC-11) — follows the sketch ============ -->
         <section class="view default" id="jobs" aria-labelledby="t-jobs">
             <h1 class="page-title normal-case" id="t-jobs">Available Jobs</h1>
             <p class="page-subtitle">2 available orders near you</p>
+
+            <div class="route-builder">
+                <div class="field">
+                    <label for="vehicle-select">Vehicle for this route</label>
+                    <select id="vehicle-select">
+                        <option>Van · Renault Kangoo E-Tech (AA-12-BC) — max 650 kg / 3,3 m³</option>
+                        <option disabled>Bike · Urban Arrow Cargo (BIKE-0031) — awaiting staff approval</option>
+                    </select>
+                </div>
+                <div class="capacity">
+                    <div class="capline"><span><strong>0</strong> order(s) selected</span></div>
+                    <div class="capline small"><span>Weight</span><span>0 / 650 kg</span></div>
+                    <div class="capbar"><span style="width:0"></span></div>
+                    <div class="capline small"><span>Volume</span><span>0 / 3,3 m³</span></div>
+                    <div class="capbar"><span style="width:0"></span></div>
+                </div>
+                <button type="button" class="btn">Accept selected as one route</button>
+            </div>
+            <div class="alert alert-info">
+                <div class="grow"><strong>Single active task</strong>You already have an active route. Finish it before accepting new jobs, or select several jobs to consolidate them into one route.</div>
+            </div>
 
             <article class="job-card">
                 <div class="job-main">
@@ -53,6 +109,7 @@
                     <div class="center"><b>Size:</b> M (0,052 m³)</div>
                     <div><b>Weight:</b> 14,5 kg</div>
                     <div class="center">Vehicle Type: Bike+</div>
+                    <label class="job-select"><input type="checkbox"> Add to route</label>
                     <div class="price">9,70€</div>
                 </div>
                 <div class="job-actions">
@@ -72,6 +129,7 @@
                     <div class="center"><b>Size:</b> S (0,012 m³)</div>
                     <div><b>Weight:</b> 2,5 kg</div>
                     <div class="center">Vehicle Type: Bike+</div>
+                    <label class="job-select"><input type="checkbox"> Add to route</label>
                     <div class="price">8,98€</div>
                 </div>
                 <div class="job-actions">
@@ -84,5 +142,8 @@
         </fieldset>
     </main>
 </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/courier.js"></script>
 </body>
 </html>

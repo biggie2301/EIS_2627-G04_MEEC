@@ -34,6 +34,34 @@
 .job-actions .icon-btn svg { width: 40px; height: 40px; }
 .job-actions hr { width: 90%; border: 0; border-top: 2px solid var(--dark); margin: 4px 0; }
 
+/* Route builder (vehicle selector + capacity) */
+.route-builder {
+    background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 20px; margin-bottom: 26px;
+    display: grid; grid-template-columns: minmax(220px, 1.2fr) 2fr auto; gap: 18px; align-items: center;
+}
+.capacity { display: grid; gap: 6px; }
+.capline { display: flex; justify-content: space-between; font-size: .85rem; }
+.capbar { height: 10px; border-radius: 99px; background: #e4e6e8; overflow: hidden; }
+.capbar span { display: block; height: 100%; background: var(--green); border-radius: 99px; }
+
+/* ---------- Current job ---------- */
+.stepper { display: flex; margin: 10px 0 20px; flex-wrap: wrap; }
+.stepper .s { flex: 1; min-width: 120px; text-align: center; padding: 10px 6px; background: #e4e6e8; font-weight: 700; color: var(--muted); }
+.stepper .s:first-child { border-radius: 999px 0 0 999px; }
+.stepper .s:last-child { border-radius: 0 999px 999px 0; }
+.stepper .s.done { background: var(--green); color: #fff; }
+.stepper .s.current { background: var(--dark); color: #fff; }
+.stop { background: #fff; border-radius: var(--radius-sm); box-shadow: var(--shadow); padding: 16px 18px; margin-bottom: 14px; }
+.stop h4 { margin: 0 0 6px; }
+.map-placeholder {
+    height: 100%; display: grid; place-items: center;
+    font-family: var(--font-title); font-size: 3.4rem; font-weight: 700; color: #fff;
+}
+.pin { width: 22px; height: 22px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .4); }
+.pin-origin { background: #2e7d4f; }
+.pin-dest { background: #b3261e; }
+.pin-feup { background: #1f5fa8; }
+
 @media (max-width: 1100px) {
     .route-builder { grid-template-columns: 1fr; }
 }
