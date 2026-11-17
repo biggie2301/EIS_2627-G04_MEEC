@@ -5,198 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courier area · CMS</title>
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="lib/leaflet/leaflet.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/courier.css">
 </head>
 <body>
 <div class="dash">
     <!-- ============ Sidebar (Courier sketch) ============ -->
     <aside class="sidebar" aria-label="Courier menu">
-        <div class="profile" id="profile"></div>
+        <div class="profile">
+            <div class="avatar" aria-hidden="true">MS</div>
+            <div>
+                <div class="profile-name">Miguel Santos</div>
+                <div class="profile-id">Courier #000005</div>
+                <span class="badge badge-success">Validated</span>
+            </div>
+        </div>
         <nav>
             <ul class="side-nav">
-                <li><a href="#current">Current Job <span class="count ok hidden" id="count-current"></span></a></li>
-                <li><a href="#jobs">Available Jobs <span class="count ok hidden" id="count-jobs"></span></a></li>
-                <li><a href="#past">Past Jobs</a></li>
-                <li><a href="#vehicles">My Vehicles <span class="count hidden" id="count-veh"></span></a></li>
-                <li><a href="#account">Account</a></li>
+                <li><a href="#jobs">Available Jobs <span class="count ok">2</span></a></li>
             </ul>
         </nav>
-        <div class="sidebar-footer">
-            <a href="index.html">CMS home</a>
-            <a href="#" data-reset-demo>Reset demo data</a>
-        </div>
+        <div class="sidebar-footer"><a href="index.html">CMS home</a></div>
     </aside>
 
     <main class="main">
+        <fieldset class="static-wrap" disabled>
         <div class="main-top">
-            <button class="icon-btn" type="button" data-logout title="Log out" aria-label="Log out" id="logout-btn"></button>
+            <a class="icon-btn" href="index.html" title="Log out" aria-label="Log out">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 L4 12 L10 18"/><path d="M4 12 H19 a8 8 0 0 1 0 16 H13"/></svg>
+            </a>
         </div>
-        <div id="pending-banner"></div>
 
-        <!-- ============ CURRENT JOB (UC-10, UC-14..17) ============ -->
-        <section class="view" id="view-current" aria-labelledby="t-cur">
-            <h1 class="page-title normal-case" id="t-cur">Current Job</h1>
-            <div id="current-empty" class="card empty-state hidden">
-                <div id="empty-icon"></div>
-                <h3>No active job</h3>
-                <p>You can execute one route at a time. Pick one or more orders in Available Jobs to start.</p>
-                <a href="#jobs" class="btn">See available jobs</a>
-            </div>
-            <div id="current-content" class="hidden">
-                <p class="page-subtitle" id="current-sub"></p>
-                <div class="stepper" id="route-stepper" aria-label="Route status"></div>
-                <div class="grid grid-2" style="align-items:start">
-                    <div>
-                        <div class="row mb-2" id="route-actions"></div>
-                        <div class="stop-list" id="stop-list"></div>
-                    </div>
-                    <div class="card">
-                        <h3>Navigation</h3>
-                        <div id="nav-map" class="map tall" aria-label="Navigation map"></div>
-                        <div class="map-legend"><span class="lg-feup">FEUP</span><span class="lg-origin">Pick-up</span><span class="lg-dest">Delivery</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ AVAILABLE JOBS (UC-09, UC-10, UC-11 · COU-02..05, COU-10) — follows the sketch ============ -->
-        <section class="view" id="view-jobs" aria-labelledby="t-jobs">
+        <!-- ============ AVAILABLE JOBS (UC-09, UC-10, UC-11) — follows the sketch ============ -->
+        <section class="view default" id="jobs" aria-labelledby="t-jobs">
             <h1 class="page-title normal-case" id="t-jobs">Available Jobs</h1>
-            <p class="page-subtitle" id="jobs-sub">0 available orders near you</p>
+            <p class="page-subtitle">2 available orders near you</p>
 
-            <div class="route-builder" id="route-builder">
-                <div class="field">
-                    <label for="vehicle-select">Vehicle for this route <span class="req">*</span></label>
-                    <select id="vehicle-select"></select>
-                    <div class="field-error" id="vehicle-error"></div>
+            <article class="job-card">
+                <div class="job-main">
+                    <div class="distance"><b>Distance:</b> 6,7 km</div>
+                    <div>Order number: #000001005</div>
+                    <div>Latitude: 41°10'40.1"N<br>Longitude: 8°35'52.4"W</div>
+                    <div class="arrow" aria-label="to">&#10230;</div>
+                    <div>Latitude: 41°08'38.4"N<br>Longitude: 8°31'55.9"W</div>
+                    <div class="center">2 item(s)</div>
+                    <div class="center"><b>Size:</b> M (0,052 m³)</div>
+                    <div><b>Weight:</b> 14,5 kg</div>
+                    <div class="center">Vehicle Type: Bike+</div>
+                    <div class="price">9,70€</div>
                 </div>
-                <div class="capacity" aria-live="polite">
-                    <div class="capline"><span><strong id="sel-count">0</strong> order(s) selected</span><span id="sel-price"></span></div>
-                    <div class="capline small"><span>Weight</span><span id="cap-w-txt">0 / 0 kg</span></div>
-                    <div class="capbar" id="cap-w"><span style="width:0"></span></div>
-                    <div class="capline small"><span>Volume</span><span id="cap-v-txt">0 / 0 m³</span></div>
-                    <div class="capbar" id="cap-v"><span style="width:0"></span></div>
+                <div class="job-actions">
+                    <button type="button" class="icon-btn" title="Hide this job" aria-label="Hide job 000001005"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 7 L25 25 M25 7 L7 25"/></svg></button>
+                    <hr>
+                    <button type="button" class="icon-btn" title="Accept this job" aria-label="Accept job 000001005"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17 L13 24 L26 8"/></svg></button>
                 </div>
-                <div class="row" style="flex-direction:column;align-items:stretch">
-                    <button type="button" class="btn" id="accept-selected">Accept selected as one route</button>
-                    <button type="button" class="btn-link small" id="show-hidden"></button>
+            </article>
+            <article class="job-card">
+                <div class="job-main">
+                    <div class="distance"><b>Distance:</b> 8,5 km</div>
+                    <div>Order number: #000001006</div>
+                    <div>Latitude: 41°08'55.0"N<br>Longitude: 8°35'08.2"W</div>
+                    <div class="arrow" aria-label="to">&#10230;</div>
+                    <div>Latitude: 41°11'19.0"N<br>Longitude: 8°29'55.3"W</div>
+                    <div class="center">1 item(s)</div>
+                    <div class="center"><b>Size:</b> S (0,012 m³)</div>
+                    <div><b>Weight:</b> 2,5 kg</div>
+                    <div class="center">Vehicle Type: Bike+</div>
+                    <div class="price">8,98€</div>
                 </div>
-            </div>
-
-            <div id="jobs-list"></div>
-        </section>
-
-        <!-- ============ PAST JOBS (UC-12 · COU-11) ============ -->
-        <section class="view" id="view-past" aria-labelledby="t-past">
-            <h1 class="page-title normal-case" id="t-past">Past Jobs</h1>
-            <p class="page-subtitle">Orders you delivered.</p>
-            <div class="grid grid-3 mb-2">
-                <div class="card kpi"><span class="k-label">Deliveries</span><span class="k-value" id="p-count">0</span></div>
-                <div class="card kpi"><span class="k-label">Distance covered</span><span class="k-value" id="p-km">0</span></div>
-                <div class="card kpi"><span class="k-label">Delivered value</span><span class="k-value" id="p-value">0</span></div>
-            </div>
-            <div class="table-wrap">
-                <table class="table">
-                    <thead><tr><th>Order</th><th>Route</th><th>Delivered</th><th>From &rarr; To</th><th class="num">Distance</th><th class="num">Weight</th><th>Vehicle</th><th>e-POD</th><th class="num">Value</th></tr></thead>
-                    <tbody id="past-body"></tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ============ MY VEHICLES (UC-08 · COU-01) ============ -->
-        <section class="view" id="view-vehicles" aria-labelledby="t-veh">
-            <h1 class="page-title normal-case" id="t-veh">My Vehicles</h1>
-            <p class="page-subtitle">Vehicles need staff approval and valid insurance and inspection before they can be used.</p>
-            <div class="table-wrap mb-2">
-                <table class="table">
-                    <thead><tr><th>Plate</th><th>Vehicle</th><th class="num">Capacity</th><th>Insurance</th><th>Inspection</th><th>Approval</th><th>Eligible</th><th></th></tr></thead>
-                    <tbody id="vehicles-body"></tbody>
-                </table>
-            </div>
-
-            <form id="vehicle-form" class="card" novalidate style="max-width:980px">
-                <h3>Register a vehicle</h3>
-                <div class="form-grid">
-                    <div class="field"><label for="v-plate">License plate <span class="req">*</span></label><input id="v-plate" name="plate" required data-rule="plate" data-label="License plate" placeholder="AA-00-AA" style="text-transform:uppercase"><div class="field-error"></div></div>
-                    <div class="field"><label for="v-model">Model <span class="req">*</span></label><input id="v-model" name="model" required data-label="Model" placeholder="e.g. Renault Kangoo"><div class="field-error"></div></div>
-                    <div class="field"><label for="v-type">Vehicle type <span class="req">*</span></label><select id="v-type" name="type" required data-label="Vehicle type"></select><div class="field-error"></div></div>
-                    <div class="field"></div>
-                    <div class="field"><label for="v-weight">Max. weight (kg) <span class="req">*</span></label><input id="v-weight" name="weight" required data-rule="positive" data-label="Max. weight" inputmode="decimal"><div class="hint" id="v-weight-hint"></div><div class="field-error"></div></div>
-                    <div class="field"><label for="v-vol">Max. volume (m³) <span class="req">*</span></label><input id="v-vol" name="volume" required data-rule="positive" data-label="Max. volume" inputmode="decimal"><div class="hint" id="v-vol-hint"></div><div class="field-error"></div></div>
-                    <div class="field"><label for="v-ins-date">Insurance expiry date <span class="req">*</span></label><input id="v-ins-date" name="insDate" type="date" required data-rule="future-date" data-label="Insurance expiry date"><div class="field-error"></div></div>
-                    <div class="field"><label for="v-ins-doc">Insurance certificate <span class="req">*</span></label><input id="v-ins-doc" name="insDoc" type="file" required accept=".pdf,.jpg,.jpeg,.png" data-maxsize="5" data-label="Insurance certificate"><div class="hint">PDF, JPG or PNG · max 5 MB</div><div class="field-error"></div></div>
-                    <div class="field"><label for="v-insp-date">Inspection expiry date <span class="req">*</span></label><input id="v-insp-date" name="inspDate" type="date" required data-rule="future-date" data-label="Inspection expiry date"><div class="field-error"></div></div>
-                    <div class="field"><label for="v-insp-doc">Inspection certificate <span class="req">*</span></label><input id="v-insp-doc" name="inspDoc" type="file" required accept=".pdf,.jpg,.jpeg,.png" data-maxsize="5" data-label="Inspection certificate"><div class="hint">PDF, JPG or PNG · max 5 MB</div><div class="field-error"></div></div>
+                <div class="job-actions">
+                    <button type="button" class="icon-btn" title="Hide this job" aria-label="Hide job 000001006"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 7 L25 25 M25 7 L7 25"/></svg></button>
+                    <hr>
+                    <button type="button" class="icon-btn" title="Accept this job" aria-label="Accept job 000001006"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17 L13 24 L26 8"/></svg></button>
                 </div>
-                <div class="form-actions"><button type="reset" class="btn btn-outline">Clear</button><button type="submit" class="btn">Submit for approval</button></div>
-            </form>
+            </article>
         </section>
-
-        <!-- ============ ACCOUNT (UC-23 · COU-12) ============ -->
-        <section class="view" id="view-account" aria-labelledby="t-acc">
-            <h1 class="page-title normal-case" id="t-acc">Account</h1>
-            <p class="page-subtitle">Edit your personal details.</p>
-            <div id="account-host" style="max-width:900px"></div>
-        </section>
+        </fieldset>
     </main>
 </div>
-
-<!-- e-POD modal (UC-15 · COU-07) -->
-<div class="modal-backdrop" id="pod-modal">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pod-title">
-        <div class="modal-head"><h3 id="pod-title">Electronic Proof of Delivery</h3><button class="modal-close" data-close-modal aria-label="Close">&times;</button></div>
-        <div class="modal-body">
-            <form id="pod-form" novalidate>
-                <p class="muted small" id="pod-order"></p>
-                <div class="tabs" role="tablist">
-                    <button type="button" class="tab active" data-tab="signature" role="tab" aria-selected="true">Signature</button>
-                    <button type="button" class="tab" data-tab="photo" role="tab" aria-selected="false">Delivery photo</button>
-                </div>
-                <div data-pane="signature">
-                    <canvas id="sig-pad" class="sig-pad" aria-label="Signature area — sign with the mouse or finger"></canvas>
-                    <div class="row between mt-1"><span class="small muted">Recipient signs inside the box</span><button type="button" class="btn btn-outline btn-sm" id="sig-clear">Clear</button></div>
-                    <div class="field"><div class="field-error" id="sig-error"></div></div>
-                </div>
-                <div data-pane="photo" class="hidden">
-                    <div class="field"><label for="pod-photo">Photo of the delivered parcel <span class="req">*</span></label><input id="pod-photo" type="file" accept="image/*" capture="environment" data-maxsize="8" data-label="Delivery photo"><div class="field-error"></div></div>
-                    <img id="photo-preview" class="photo-preview hidden" alt="Photo preview">
-                </div>
-                <div class="field mt-2"><label for="pod-name">Received by <span class="req">*</span></label><input id="pod-name" required data-label="Received by" placeholder="Recipient name, or e.g. 'Left at reception'"><div class="field-error"></div></div>
-                <div class="form-actions"><button type="button" class="btn btn-outline" data-close-modal>Back</button><button type="submit" class="btn">Confirm delivery</button></div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Update documents modal -->
-<div class="modal-backdrop" id="docs-modal">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="docs-title">
-        <div class="modal-head"><h3 id="docs-title">Update vehicle documents</h3><button class="modal-close" data-close-modal aria-label="Close">&times;</button></div>
-        <div class="modal-body">
-            <form id="docs-form" novalidate>
-                <p class="small muted" id="docs-vehicle"></p>
-                <div class="form-grid">
-                    <div class="field"><label for="u-ins-date">Insurance expiry <span class="req">*</span></label><input id="u-ins-date" name="insDate" type="date" required data-rule="future-date" data-label="Insurance expiry"><div class="field-error"></div></div>
-                    <div class="field"><label for="u-ins-doc">New insurance certificate</label><input id="u-ins-doc" name="insDoc" type="file" accept=".pdf,.jpg,.jpeg,.png" data-maxsize="5" data-label="Insurance certificate"><div class="field-error"></div></div>
-                    <div class="field"><label for="u-insp-date">Inspection expiry <span class="req">*</span></label><input id="u-insp-date" name="inspDate" type="date" required data-rule="future-date" data-label="Inspection expiry"><div class="field-error"></div></div>
-                    <div class="field"><label for="u-insp-doc">New inspection certificate</label><input id="u-insp-doc" name="inspDoc" type="file" accept=".pdf,.jpg,.jpeg,.png" data-maxsize="5" data-label="Inspection certificate"><div class="field-error"></div></div>
-                </div>
-                <p class="small muted">Updated documents are sent to staff for a new approval.</p>
-                <div class="form-actions"><button type="button" class="btn btn-outline" data-close-modal>Back</button><button type="submit" class="btn">Submit update</button></div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="lib/leaflet/leaflet.js"></script>
-<script src="js/data.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/validation.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/courier.js"></script>
 </body>
 </html>
