@@ -63,6 +63,22 @@
                         </div>
                         <p class="small muted mt-1 mb-0">Cancelled orders return to the list of available jobs.</p>
                     </div>
+
+                    <!-- e-POD simulator: signature canvas or delivery photo -->
+                    <form id="pod-form" class="card">
+                        <h3>Electronic Proof of Delivery</h3>
+                        <fieldset>
+                            <legend>Recipient signature</legend>
+                            <canvas id="sig-pad" class="sig-pad" aria-label="Signature area — sign with the mouse or finger"></canvas>
+                            <div class="row between mt-1"><span class="small muted">Recipient signs inside the box</span><button type="button" class="btn btn-outline btn-sm" id="sig-clear">Clear</button></div>
+                            <div class="field"><div class="field-error" id="sig-error"></div></div>
+                        </fieldset>
+                        <p class="small muted mt-1 mb-0">— or —</p>
+                        <div class="field mt-1"><label for="pod-photo">Delivery photo</label><input id="pod-photo" type="file" accept="image/*" data-maxsize="8" data-label="Delivery photo"><div class="field-error"></div></div>
+                        <img id="photo-preview" class="photo-preview" alt="Photo preview" hidden>
+                        <div class="field mt-2"><label for="pod-name">Received by <span class="req">*</span></label><input id="pod-name" required data-label="Received by" placeholder="Recipient name, or e.g. 'Left at reception'"><div class="field-error"></div></div>
+                        <div class="form-actions"><button type="submit" class="btn">Confirm delivery</button></div>
+                    </form>
                 </div>
                 <div class="card">
                     <h3>Navigation</h3>
